@@ -58,7 +58,7 @@ func main() {
 	// 关闭文件
 	defer file.Close()
 
-	// 使用PNG格式将数据写入文件
+	// 使用PNG格式将数据写入文件(使用PNG包，将图形对象写入文件中)
 	err = png.Encode(file, picture)
 	if err != nil {
 		log.Fatalf("png.Encode error:%s\n", err)
