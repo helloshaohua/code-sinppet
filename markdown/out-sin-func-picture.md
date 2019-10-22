@@ -69,4 +69,4 @@ func main() {
 
 > Output Effect
 
-![Output Effect](./001/sin.png)
+![Output Effect](../001/sin.png)
