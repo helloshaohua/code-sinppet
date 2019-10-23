@@ -13,4 +13,4 @@
 
 ### Go语言指针
 
-##### [使用指针变量获取命令行的输入信息](./markdown/base64-string.md)
+##### [使用指针变量获取命令行的输入信息](./markdown/pointer.md)
