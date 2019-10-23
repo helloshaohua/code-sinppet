@@ -46,7 +46,7 @@ fast
 - 第 13 行，解析命令行参数，并将结果写入到变量 mode 中。
 - 第 16 行，打印 mode 指针所指向的变量。
 
-由于之前已经使用 flag.String 注册了一个名为 mode 的命令行参数，flag 底层知道怎么解析命令行，并且将值赋给 mode*string 指针，在 Parse 调用完毕后，无须从 flag 获取值，而是通过自己注册的这个 mode 指针获取到最终的值。代码运行流程如下图所示。
+由于之前已经使用 flag.String 注册了一个名为 mode 的命令行参数，flag 底层知道怎么解析命令行，并且将值赋给 mode *string 指针，在 Parse 调用完毕后，无须从 flag 获取值，而是通过自己注册的这个 mode 指针获取到最终的值。代码运行流程如下图所示。
 
 ![命令行参数与变量的关系](https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191023_14.jpg)
 
