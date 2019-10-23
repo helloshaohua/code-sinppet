@@ -8,3 +8,4 @@
 #### [Go语言字符串截取（获取字符串的某一段字符）](./markdown/string-interception.md)
 #### [Go语言修改字符串](./markdown/change-string.md)
 #### [Go语言字符串拼接（连接）](./markdown/join-string.md)
+#### [Go语言fmt.Sprintf（格式化输出）](./markdown/format-out-string.md)
