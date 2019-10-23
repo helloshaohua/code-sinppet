@@ -10,3 +10,7 @@
 ##### [Go语言字符串拼接（连接）](./markdown/join-string.md)
 ##### [Go语言fmt.Sprintf（格式化输出）](./markdown/format-out-string.md)
 ##### [Go语言Base64编码——电子邮件的基础编码格式](./markdown/base64-string.md)
+
+### Go语言指针
+
+##### [使用指针变量获取命令行的输入信息](./markdown/base64-string.md)
