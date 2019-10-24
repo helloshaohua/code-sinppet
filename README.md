@@ -1,6 +1,6 @@
 ## Golang 代码片段
 
-### [Go语言输出正弦函数（Sin）图像](markdown/002/out-sin-func-picture.md)
+##### [Go语言输出正弦函数（Sin）图像](markdown/002/out-sin-func-picture.md)
 
 ### Go语言字符串
 
