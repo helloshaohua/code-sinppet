@@ -45,7 +45,7 @@ func main() {
 	// 写入图片文件
 	// ------------------------------------------------------
 	// 创建文件
-	file, err := os.Create("./code/001/sin.png")
+	file, err := os.Create("./code/002/sin.png")
 	if err != nil {
 		log.Fatalf("os.Create error:%s\n", err)
 	}
