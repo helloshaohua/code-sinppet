@@ -1,3 +1,8 @@
+### Go语言输出正弦函数（Sin）图像
+
+> Source Code
+
+```go
 package main
 
 import (
@@ -45,7 +50,7 @@ func main() {
 	// 写入图片文件
 	// ------------------------------------------------------
 	// 创建文件
-	file, err := os.Create("./001/sin.png")
+	file, err := os.Create("./code/001/sin.png")
 	if err != nil {
 		log.Fatalf("os.Create error:%s\n", err)
 	}
@@ -53,9 +58,15 @@ func main() {
 	// 关闭文件
 	defer file.Close()
 
-	// 使用PNG格式将数据写入文件
+	// 使用PNG格式将数据写入文件(使用PNG包，将图形对象写入文件中)
 	err = png.Encode(file, picture)
 	if err != nil {
 		log.Fatalf("png.Encode error:%s\n", err)
 	}
 }
+
+```
+
+> Output Effect
+
+![Output Effect](../../code/001/sin.png)
