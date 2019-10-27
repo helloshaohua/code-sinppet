@@ -30,3 +30,4 @@
 ### 流程控制
 
 ##### [Go语言输出九九乘法表](markdown/004/for-loop-using.md)
+##### [示例：聊天机器人](markdown/004/chat-robot.md)
