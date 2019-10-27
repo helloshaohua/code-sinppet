@@ -58,12 +58,14 @@ func main() {
 
 ```shell
 $ go run test.go
-Please input your name: 
+-> Please input your name: 
 wu.shaohua@foxmail.com
 Hello, wu.shaohua@foxmail.com! What can I do for you?
-hello world
+-> hello world
 Haha, HELLO WORLD
-bye
+->bye
 Bye!
 ```
+
+注意，其中的“->”符号之后的内容是我们输入的。
 
