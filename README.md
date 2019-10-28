@@ -32,3 +32,4 @@
 ##### [Go语言输出九九乘法表](markdown/004/for-loop-using.md)
 ##### [示例：聊天机器人](markdown/004/chat-robot.md)
 ##### [示例：词频统计](markdown/004/word-frequency-statistics.md)
+##### [示例：缩进排序](markdown/004/indentation-sort.md)
