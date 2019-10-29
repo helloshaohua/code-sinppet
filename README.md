@@ -33,3 +33,4 @@
 ##### [示例：聊天机器人](markdown/004/chat-robot.md)
 ##### [示例：词频统计](markdown/004/word-frequency-statistics.md)
 ##### [示例：缩进排序](markdown/004/indentation-sort.md)
+##### [示例：二分查找算法](markdown/004/binary-find.md)
