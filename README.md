@@ -40,3 +40,8 @@
 ### Go语言函数
 
 ##### [字符串的链式处理](markdown/005/string-chain-processing.md)
+
+### Go语言语法糖
+
+- 函数可变参数列表`func(users ...User)`
+- 数组可变长度值 `[...]int`
