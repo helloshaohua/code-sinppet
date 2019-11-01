@@ -35,8 +35,3 @@
 ##### [示例：缩进排序](markdown/004/indentation-sort.md)
 ##### [示例：二分查找算法](markdown/004/binary-find.md)
 ##### [示例：冒泡排序](markdown/004/bubble-sort.md)
-
-### 方法
-
-##### [生成指定范围内的随机数](markdown/000/random.md)
-##### [生成指定范围内的有序或无序切片](markdown/000/slice.md)
