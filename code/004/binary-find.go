@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"math"
+
+	"github.com/wumoxi/toolkit"
 )
 
 func main() {
@@ -13,7 +15,7 @@ func main() {
 	flag.Parse()
 
 	// 定义一个指定范围的数组(切片)
-	s := generateSectionIntSlice(1, 50, 2)
+	s := toolkit.GenerateSectionIntSliceOfOrderly(1, 50, 2)
 	// 输出当前数组(切片)具体的长度
 	fmt.Printf("slice: %+v, len: %d\n", s, len(s))
 
@@ -58,13 +60,4 @@ func binaryFind(arr *[]int, leftIndex, rightIndex int, findValue int, think *int
 
 	// 未找到
 	return *think
-}
-
-// 生成指定范围内的整型切片(数组)
-func generateSectionIntSlice(min, max int, step int) []int {
-	result := make([]int, 0, max)
-	for i := min; i <= max; i += step {
-		result = append(result, i)
-	}
-	return result
 }
