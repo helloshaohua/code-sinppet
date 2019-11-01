@@ -35,3 +35,8 @@
 ##### [示例：缩进排序](markdown/004/indentation-sort.md)
 ##### [示例：二分查找算法](markdown/004/binary-find.md)
 ##### [示例：冒泡排序](markdown/004/bubble-sort.md)
+
+
+### Go语言函数
+
+##### [字符串的链式处理](markdown/005/string-chain-processing.md)
