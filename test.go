@@ -1,17 +1,27 @@
 package main
 
-import (
-	"fmt"
-	"toolkit"
-)
+import "fmt"
 
-func sum(input ...int) (sum int) {
-	for _, value := range input {
-		sum += value
-	}
-	return sum
+type Point struct {
+	X int
+	Y int
+}
+
+type Player struct {
+	Name        string
+	HealthPoint int
+	MagicPoint  int
 }
 
 func main() {
-	fmt.Println(sum(toolkit.GenerateSectionIntSliceOfDisorderly(1, 100)...))
+	p := new(Point)
+	p.X = 33
+	p.Y = 55
+
+	player := new(Player)
+	player.Name = "张三"
+	player.HealthPoint = 100
+	player.MagicPoint = 2000
+
+	fmt.Printf("%+v", player)
 }
