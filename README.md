@@ -46,3 +46,7 @@
 - 函数可变参数列表`func(users ...User)`
 - 数组可变长度值 `[...]int`
 - 访问结构体指针的成员变量 `player := new(Player) player.Name => (*player).Name`
+
+### Go语言结构体
+
+##### [创建一个HTTP请求](markdown/006/new-http-request.md)
