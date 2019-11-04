@@ -45,21 +45,28 @@ func main() {
 	// 生成一段JSON 数据
 	data := generateJSONData()
 
+	// 转换为字符串格式并打印输出
 	fmt.Println(string(data))
 
+	// 只需要屏幕和指纹识别信息的结构和实例
 	screenAndTouch := struct {
 		Screen
 		HasTouchID bool
 	}{}
 
+	// 反序列化到screenAndTouch中
 	json.Unmarshal(data, &screenAndTouch)
+	// 输出screenAndTouch的详细结构
 	fmt.Printf("screenAndTouch: %+v\n", screenAndTouch)
 
+	// 只需要电池和指纹识别信息的结构和实例
 	batteryAndTouch := struct {
 		Battery
 		HasTouchID bool
 	}{}
 
+	// 反序列化到batteryAndTouch
 	json.Unmarshal(data, &batteryAndTouch)
+	// 输出screenAndTouch的详细结构
 	fmt.Printf("batteryAndTouch: %+v\n", batteryAndTouch)
 }
