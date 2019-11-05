@@ -52,3 +52,7 @@
 ##### [创建一个HTTP请求](markdown/006/new-http-request.md)
 ##### [示例：使用事件系统实现事件的响应和处理](markdown/006/event.md)
 ##### [示例：使用匿名结构体解析JSON数据](markdown/006/anonymous-struct-parse-json-data.md)
+
+### Go语言接口
+
+##### [示例：使用空接口实现可以保存任意值的字典](markdown/007/save-interface-value-into-dictionary.md)
