@@ -101,8 +101,8 @@ func (d *Dictionary) Get(key interface{}) interface{} {
 
 代码说明如下：
 - 第 4 行，Dictionary 的内部实现是一个键值均为 interface{} 类型的 map，map 也具备与 Dictionary 一致的功能。
-- 第 9 行，通过 map 直接获取值，如果键不存在，将返回 nil。
-- 第 14 行，通过 map 设置键值。
+- 第 9 行，通过 map 设置键值。
+- 第 14 行，通过 map 直接获取值，如果键不存在，将返回 nil。
 
 #### 遍历字段的所有键值关联数据
 
