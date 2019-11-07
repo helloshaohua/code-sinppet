@@ -56,3 +56,7 @@
 ### Go语言接口
 
 ##### [示例：使用空接口实现可以保存任意值的字典](markdown/007/save-interface-value-into-dictionary.md)
+
+### Go语言包
+
+##### [示例：Go语言工厂模式自动注册](markdown/008/auto-register-factory.md)
