@@ -60,3 +60,4 @@
 ### Go语言包
 
 ##### [示例：Go语言工厂模式自动注册](markdown/008/auto-register-factory.md)
+##### [示例：Go语言单例模式](markdown/008/single-mode.md)
