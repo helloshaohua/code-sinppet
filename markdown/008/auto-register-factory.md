@@ -16,7 +16,7 @@
 
 ```
 
-> 本套教程所有源码下载地址 [https://github.com/wumoxi/code-sinppet/tree/master/code/008/clsfactory](../code/008/clsfactory)
+> 本套教程所有源码下载地址 [https://github.com/wumoxi/code-sinppet/tree/master/code/008/clsfactory](https://github.com/wumoxi/code-sinppet/tree/master/code/008/clsfactory)
 
 
 #### 类工厂
