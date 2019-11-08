@@ -110,7 +110,7 @@ confirmation:
 	}
 
 	for {
-		fmt.Println("确认是否删除(Y/N)：")
+		fmt.Print("确认是否删除(Y/N)：")
 		choice := ""
 		fmt.Scanln(&choice)
 		if choice == "Y" || choice == "y" {
