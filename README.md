@@ -62,3 +62,4 @@
 ##### [示例：Go语言工厂模式自动注册](markdown/008/auto-register-factory.md)
 ##### [示例：Go语言单例模式](markdown/008/single-mode.md)
 ##### [示例：使用Go语言生成二维码](markdown/008/generate-qrcode.md)
+##### [示例：客户信息管理系统](markdown/008/customer-management-os.md)
