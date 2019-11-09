@@ -64,3 +64,4 @@
 ##### [示例：使用Go语言生成二维码](markdown/008/generate-qrcode.md)
 ##### [示例：客户信息管理系统](markdown/008/customer-management-os.md)
 ##### [示例：发送电子邮件](markdown/008/send-email.md)
+##### [示例：Pingo插件化开发](markdown/008/pingo-plugin.md)
