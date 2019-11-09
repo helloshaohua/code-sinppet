@@ -20,11 +20,11 @@ func main() {
 	mailer := toolkit.NewEmail(&toolkit.MailerParams{
 		ServerHost:   "smtp.qq.com",
 		ServerPort:   465,
-		FromEmail:    "wu.shaohua@foxmail.com",
+		FromEmail:    "shaohua@foxmail.com",
 		FromPassword: "mmooqxhsssdothsdpsubddf",
 		FromName:     "武沫汐",
-		Toers:        []string{"warnerwu@126.com", "warnerwu@139.com", "contact.shaohua@gmail.com"},
-		CCers:        []string{"warnerwu@163.com"},
+		Toers:        []string{"warner@126.com", "warner@139.com", "contact.warner@gmail.com"},
+		CCers:        []string{"warner@163.com"},
 	})
 
 	send, err := mailer.Send("Golang邮件发送", `中华人民共和国`, "text/plain")
@@ -42,6 +42,12 @@ func main() {
 2019/11/09 11:56:13 发送成功
 ```
 
-> 注意:
+> 注意: 将具体的邮件操作封装到了工具包中 [toolkit](https://github.com/wumoxi/toolkit)
 
-将具体的邮件操作封装到了工具包中 [toolkit](https://github.com/wumoxi/toolkit)
+#### 使用自定义客户端发送邮件需要以下两个要素
+
+1、 发送方的邮箱必须开启 stmt 和 pop3 通道，以 qq 邮箱为例，登陆 qq 邮箱 -> 设置 -> 账户 -> 开启 pop3 和 stmt 服务
+
+![开启 stmt 和 pop3 通道](https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191109_8.png)
+
+2、开启后会获得该账户的授权码，如果忘记也可以重新生成。
