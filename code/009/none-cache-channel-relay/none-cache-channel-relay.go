@@ -1,4 +1,3 @@
-// 这个示例程序展示如何用无缓冲的通道来模拟，2 个goroutine 间的网球比赛
 package main
 
 import (
@@ -10,12 +9,11 @@ import (
 // 用 WaitGroup 等待Goroutine程序结束
 var wg sync.WaitGroup
 
-// main 是所有Go程序的入口
 func main() {
-	// 创建一个无缓冲的通道
+	// 创建一个无缓冲的通道用于传递接力棒
 	relay := make(chan int)
 
-	// 为最后一个跑步者将计数加1
+	// 为最后一位跑步者，添加Goroutine等待计数
 	wg.Add(1)
 
 	// 第一位跑步者持有接力棒
@@ -28,24 +26,25 @@ func main() {
 	wg.Wait()
 }
 
-// runner 模拟接力赛中的一位跑步者
-func Runner(relay chan int) {
+// Runner 模拟接力赛中的每一位跑步者
+func Runner(replay chan int) {
+	// 表示每一位新的跑步者
 	var newRunner int
 
 	// 等待接力棒
-	runner := <-relay
+	runner := <-replay
 
-	// 开始绕着跑道跑步
-	fmt.Printf("Runner %d running with relay\n", runner)
+	// 开始围绕跑道跑步
+	fmt.Printf("Runner %d runner with relay\n", runner)
 
-	// 创建下一位跑步者
+	// 判断当前跑步者是不是第四位，不是则创建下一位跑步者
 	if runner != 4 {
 		newRunner = runner + 1
 		fmt.Printf("Runner %d to the line\n", newRunner)
-		go Runner(relay)
+		go Runner(replay)
 	}
 
-	// 围绕跑道跑
+	// 围绕跑道跑步
 	time.Sleep(100 * time.Millisecond)
 
 	// 比赛结束了吗？
@@ -55,8 +54,6 @@ func Runner(relay chan int) {
 		return
 	}
 
-	// 将接力棒交给下一们跑步者
-	fmt.Printf("Runner %d exchangeed with runner %d\n", runner, newRunner)
-
-	relay <- newRunner
+	// 传递接力棒
+	replay <- newRunner
 }

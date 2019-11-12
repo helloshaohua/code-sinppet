@@ -1,5 +1,5 @@
 // 这个示例程序展示如何用无缓冲的通道来模拟，2 个goroutine 间的网球比赛
-package _09
+package none_cache_channel
 
 import (
 	"fmt"

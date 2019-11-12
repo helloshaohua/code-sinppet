@@ -69,3 +69,4 @@
 ### Go语言并发
 
 ##### [示例：Go语言无缓冲的通道模拟网球比赛](markdown/009/none-cache-channel.md)
+##### [示例：Go语言无缓冲的通道模拟接力赛](markdown/009/none-cache-channel-relay.md)
