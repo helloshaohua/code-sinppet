@@ -10,8 +10,11 @@ var code int64
 
 // 序列号生成器
 func GenerateID() int64 {
+	// 序列号存储值加1
+	atomic.AddInt64(&code, 1)
+
 	// 返回序列号
-	return atomic.AddInt64(&code, 1)
+	return code
 }
 
 func main() {
