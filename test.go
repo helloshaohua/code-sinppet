@@ -1,26 +1,17 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 func main() {
-	// 声明一个退出用的通道
-	exit := make(chan bool)
+	ch := make(chan int, 2)
 
-	// 打印开始
-	fmt.Println("start")
+	ch <- 1
+	ch <- 2
 
-	// 过1秒钟后，调用匿名函数
-	time.AfterFunc(time.Second, func() {
-		// 1秒钟后，打印结束
-		fmt.Println("one second after-func")
+	close(ch)
 
-		// 通知main函数的 goroutine 已经结束
-		exit <- true
-	})
-
-	// 等待结束
-	<-exit
+	for i := 0; i < cap(ch)+2; i++ {
+		value, ok := <-ch
+		fmt.Printf("value %d, ok: %t\n", value, ok)
+	}
 }
