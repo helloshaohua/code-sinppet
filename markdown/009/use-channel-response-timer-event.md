@@ -79,7 +79,7 @@ func main() {
 			fmt.Println("stop")
 			// 跳出循环
 			goto stopHere
-		case <-ticker.C:
+		case <-ticker.C: // 打点器触发了
 			// 记录触发了多少次
 			count++
 			fmt.Printf("tick number %d\n", count)
