@@ -13,7 +13,7 @@ var (
 
 // GetCount 获取计数器
 func GetCount() int {
-	// 使用读写锁锁定
+	// 使用读写互斥锁锁定
 	countGuard.RLock()
 
 	// 在函数退出时解除锁定
