@@ -75,3 +75,4 @@
 ##### [示例：Go语言Telnet回音服务器(TCP服务器的基本结构)](markdown/009/telnet.md)
 ##### [示例：Go语言竞态检测(检测代码在并发环境下可能出现的问题{通过使用原子访问解决})](markdown/009/race-check.md)
 ##### [示例：Go语言互斥锁(sync.Mutex)和读写互斥锁(sync.RWMutex)](markdown/009/lock.md)
+##### [示例：Go语言等待组](markdown/009/wait-group.md)
