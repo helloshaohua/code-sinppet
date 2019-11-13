@@ -228,7 +228,7 @@ $ telnet 127.0.0.1 8001
 
 #### 测试输入字符串
 
-> 在 Telnet 连接后，输入字符串 hello，Telnet 命令行显示如下：
+> 在 Telnet 连接后，输入字符串 hello world，Telnet 命令行显示如下：
 
 ```shell
 $ telnet 127.0.0.1 8001
