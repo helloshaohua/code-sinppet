@@ -32,9 +32,6 @@ func RPCServer(ch chan string) {
 		// 打印接收到的数据
 		fmt.Printf("Server received: %s\n", data)
 
-		// 通过睡眠函数让程序执行阻塞2秒的任务
-		time.Sleep(2 * time.Second)
-
 		// 反馈给客户端收到了
 		ch <- "ok"
 	}
