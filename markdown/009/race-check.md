@@ -44,10 +44,10 @@ func main() {
 
 > 代码说明如下：
 
-第 9 行，序列号生成器中的保存上次序列号的变量。
-第 14 行，使用原子操作函数 atomic.AddInt64() 对 code 变量加 1 操作。不过这里故意没有使用 atomic.AddInt64() 的返回值作为 GenerateID() 函数的返回值，因此会造成一个竞态问题。
-第 23 行，循环 10 次生成 10 个 goroutine 调用 GenerateID() 函数，同时忽略 GenerateID() 的返回值。
-第 27 行，单独调用一次 GenerateID() 函数。
+- 第 9 行，序列号生成器中的保存上次序列号的变量。
+- 第 14 行，使用原子操作函数 atomic.AddInt64() 对 code 变量加 1 操作。不过这里故意没有使用 atomic.AddInt64() 的返回值作为 GenerateID() 函数的返回值，因此会造成一个竞态问题。
+- 第 23 行，循环 10 次生成 10 个 goroutine 调用 GenerateID() 函数，同时忽略 GenerateID() 的返回值。
+- 第 27 行，单独调用一次 GenerateID() 函数。
 
 在运行程序时，为运行参数加入-race参数，开启运行时（runtime）对竞态问题的分析，命令如下：
 
