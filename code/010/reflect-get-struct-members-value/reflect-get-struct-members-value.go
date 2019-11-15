@@ -34,7 +34,6 @@ func main() {
 		// 试图修改 Name 字段值
 		if fieldName == "Name" {
 			v.FieldByName(fieldName).SetString("武沫汐")
-			fmt.Println("v.FieldByName(fieldName):", v.FieldByName(fieldName))
 		}
 
 		// 字段类型
