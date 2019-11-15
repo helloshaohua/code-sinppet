@@ -36,6 +36,12 @@ func main() {
 		// 字段名称
 		fieldName := t.Field(i).Name
 
+		// 试图修改 Name 字段值
+		if fieldName == "Name" {
+			v.FieldByName(fieldName).SetString("武沫汐")
+			fmt.Println("v.FieldByName(fieldName):", v.FieldByName(fieldName))
+		}
+
 		// 字段类型
 		fieldType := field.Type()
 
@@ -51,10 +57,10 @@ func main() {
 以上例子的输出为：
 
 ```text
-字段索引值：0, 字段名称：Name, 字段类型：string, 字段值：张三
+字段索引值：0, 字段名称：Name, 字段类型：string, 字段值：武沫汐
 字段索引值：1, 字段名称：Age, 字段类型：int, 字段值：18
 字段索引值：2, 字段名称：Sex, 字段类型：uint8, 字段值：1
 字段索引值：3, 字段名称：Weight, 字段类型：float64, 字段值：68.57
 ```
 
-可以看出，对于结构的反射操作并没有根本上的不同，只是用了 Field() 方法来按索引获取对应的成员。
+可以看出，对于结构的反射操作并没有根本上的不同，只是用了 Field() 方法来按索引获取对应的成员。当然，在试图修改成员的值时，也需要注意可赋值属性。

@@ -5,9 +5,20 @@ import (
 	"reflect"
 )
 
+type User struct {
+	ID   int
+	Name string
+	Age  int
+}
+
 func main() {
-	var x float64 = 3.4
-	reflect.ValueOf(&x).Elem().SetFloat(5.5)
-	fmt.Println(reflect.ValueOf(&x).Elem())
-	fmt.Println(x)
+	u := User{1, "张三", 20}
+	va := reflect.ValueOf(u)
+	vb := reflect.ValueOf(&u)
+	// 值类型是不可以修改的
+	fmt.Println(va.CanSet(), va.FieldByName("Name").CanSet())
+	// 值类型是不可以修改的
+	fmt.Println(vb.CanSet(), vb.Elem().FieldByName("Name").CanSet())
+	vb.Elem().FieldByName("Name").SetString("zhangsan")
+	fmt.Printf("%v\n", vb)
 }
