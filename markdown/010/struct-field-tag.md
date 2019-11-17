@@ -20,7 +20,7 @@ StructTag 拥有一些方法，可以进行 Tag 信息的解析和提取，如�
 
 - func(tag StructTag)Get(key string)string
 
-根据 Tag 中的键获取对应的值，例如在 `key1:"value1"key2:"value2"` 的 Tag 中，可以传入“key1”获得“value1”。
+根据 Tag 中的键获取对应的值，例如在 `key1:"value1"key2:"value2"` 的 Tag 中，可以传入 `key1` 获得 `value1`。
 
 - func(tag StructTag)Lookup(key string)(value string,ok bool)
 
