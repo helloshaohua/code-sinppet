@@ -58,4 +58,14 @@ func main() {
 
 第 12 行中，在 `json:` 和 `"type"` 之间增加了一个空格。这种写法没有遵守结构体标签的规则，因此无法通过 Tag.Get 获取到正确的 json 对应的值。
 
+应将其调整为：
+
+```go
+// 声明【猫】结构体
+type cat struct {
+    Name string
+    Type int `json:"type" id:"100"`
+}
+```
+
 这个错误在开发中非常容易被疏忽，造成难以察觉的错误。
