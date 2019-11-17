@@ -2,7 +2,7 @@
 
 当我们将一个接口值传递给一个 reflect.ValueOf 函数调用时，此调用返回的是代表着此接口值的动态值的一个 reflect.Value 值。我们必须通过间接的途径获得一个代表一个接口值的 reflect.Value 值。
 
-reflect.Value 类型有很多方法（https://golang.google.cn/pkg/reflect/）。我们可以调用这些方法来观察和操纵一个 reflect.Value 属主值表示的 Go 值。这些方法中的有些适用于所有种类类型的值，有些只适用于一种或几种类型的值。
+reflect.Value 类型有很多方法 [Reflect](https://golang.google.cn/pkg/reflect/)。我们可以调用这些方法来观察和操纵一个 reflect.Value 属主值表示的 Go 值。这些方法中的有些适用于所有种类类型的值，有些只适用于一种或几种类型的值。
 
 通过不合适的 reflect.Value 属主值调用某个方法将在运行时产生一个恐慌。请阅读 reflect 代码库中各个方法的文档来获取如何正确地使用这些方法。
 
