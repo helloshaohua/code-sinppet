@@ -176,11 +176,18 @@ type dog struct {
 
 然后根据字段名获取字段的值时，将字符串的字段首字母大写，修改后的代码如下：
 
+
+```go
+vLegCount := valueOfDog.FieldByName("LegCount")
+```
+
+再次运行程序，发现仍然报错：
+
 ```text
 panic: reflect: call of reflect.flag.mustBeAssignable on zero Value
 ```
 
-这个错误表示第 14 行构造的 valueOfDog 这个结构体实例不能被寻址，因此其字段也不能被修改。修改代码，取结构体的指针，再通过 reflect.Value 的 Elem() 方法取到值的反射值对象。修改后的完整代码如下：
+这个错误表示第 12 行构造的 valueOfDog 这个结构体实例不能被寻址(它只是结构体dog类型零值)，因此其字段也不能被修改。修改代码，取结构体的指针，再通过 reflect.Value 的 Elem() 方法取到值的反射值对象。修改后的完整代码如下：
 
 ```go
 package main
