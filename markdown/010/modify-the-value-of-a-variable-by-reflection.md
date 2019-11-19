@@ -215,7 +215,7 @@ func main() {
 	// 获取 LegCount 字段的值
 	vLegCount := valueOfDog.FieldByName("LegCount")
 
-	// 修改或设置 legCount 字段的值
+	// 修改或设置 LegCount 字段的值
 	vLegCount.SetInt(1024)
 
 	// 输出修改后的值
