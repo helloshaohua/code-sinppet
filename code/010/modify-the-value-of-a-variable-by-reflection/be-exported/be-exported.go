@@ -20,7 +20,7 @@ func main() {
 	// 获取 dog 实例地址的元素
 	valueOfDog = valueOfDog.Elem()
 
-	// 获取 legCount 字段的值
+	// 获取 LegCount 字段的值
 	vLegCount := valueOfDog.FieldByName("LegCount")
 
 	// 尝试设置 legCount 字段的值(这里会发生崩溃)
