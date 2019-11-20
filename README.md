@@ -89,3 +89,4 @@
 ##### [示例：Go语言通过反射访问结构体成员的值](markdown/010/values-of-structure-members-are-accessed-by-reflection.md)
 ##### [示例：判断反射值的空和有效性](markdown/010/determines-the-null-and-validity-of-the-reflection-value.md)
 ##### [示例：通过反射修改变量的值](markdown/010/modify-the-value-of-a-variable-by-reflection.md)
+##### [示例：通过类型信息创建实例](markdown/010/create-an-instance-with-type-information.md)
