@@ -91,3 +91,4 @@
 ##### [示例：通过反射修改变量的值](markdown/010/modify-the-value-of-a-variable-by-reflection.md)
 ##### [示例：通过类型信息创建实例](markdown/010/create-an-instance-with-type-information.md)
 ##### [示例：通过反射调用函数](markdown/010/functions-are-called-by-reflection.md)
+##### [示例：依赖注入](markdown/010/injection.md)
