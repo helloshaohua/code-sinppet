@@ -98,3 +98,4 @@
 ##### [示例：Dial()函数](markdown/011/dial-func.md)
 ##### [示例：建立TCP链接](markdown/011/setting-up-tcp-links.md)
 ##### [示例：Go语言DialTCP()](markdown/011/dial-tcp.md)
+##### [示例：RPC协议远程过程调用](markdown/011/rpc-protocol.md)
