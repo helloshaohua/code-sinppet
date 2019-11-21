@@ -1,5 +1,6 @@
 package main
 
+<<<<<<< HEAD
 import (
 	"bytes"
 	"fmt"
@@ -61,4 +62,8 @@ func checkError(e error) {
 		fmt.Fprintf(os.Stderr, "Fatal error:%s\n", e.Error())
 		os.Exit(1)
 	}
+=======
+func main() {
+
+>>>>>>> 06723f01895556180d12c7fdbeb3e24933b41c1a
 }
