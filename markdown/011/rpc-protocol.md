@@ -56,7 +56,7 @@ code/011/rpc_protocol
     └── service.go
 ```
 
-#### service.go
+#### service\/service.go
 
 ```go
 package service
@@ -91,7 +91,7 @@ func (t *Ardith) Divide(args *Args, quo *Quotient) error {
 }
 ```
 
-#### server.go
+#### server\/server.go
 
 注册服务对象并开启该 RPC 服务的代码如下：
 
@@ -165,7 +165,7 @@ func main() {
 ardith: 7 * 8 = 56
 ```
 
-#### #### asynchronous\/client.go
+#### asynchronous\/client.go
 
 RPC 在调用服务端提供的方法之前，必须先与 RPC 服务端建立连接，RPC 客户端可以调用服务端提供的方法。以下是异步方式进行调用，如下列代码所示：
 
