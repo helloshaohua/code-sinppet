@@ -1,3 +1,8 @@
+### Go语言TCP协议
+
+下面我们建立 TCP 链接来实现初步的 HTTP 协议，通过向网络主机发送 HTTP Head 请求，读取网络主机返回的信息，具体代码如下所示。
+
+```go
 package main
 
 import (
@@ -48,7 +53,7 @@ func readFully(conn net.Conn) ([]byte, error) {
 			if err == io.EOF {
 				break
 			}
-			return nil, err
+			return nil ,err
 		}
 		result.Write(buf[:n])
 	}
@@ -62,3 +67,19 @@ func checkError(e error) {
 		os.Exit(1)
 	}
 }
+```
+
+执行这段程序并查看执行结果：
+
+```shell
+$ go run setting-up-tcp-links.go qiniu.com:80
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 21 Nov 2019 00:35:38 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Wed, 24 Jul 2019 02:28:35 GMT
+Connection: close
+ETag: "5d37c253-264"
+Accept-Ranges: bytes
+```
