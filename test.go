@@ -1,19 +1,7 @@
 package main
 
-import (
-	"io"
-	"log"
-	"net/http"
-	"os"
-)
+import "fmt"
 
 func main() {
-	response, err := http.Get("http://www.baidu.com")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer response.Body.Close()
-
-	io.Copy(os.Stdout, response.Body)
+	fmt.Printf("%+v, %T\n", 2&0x0001, 2&0x0001)
 }

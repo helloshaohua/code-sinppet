@@ -1,28 +1,89 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"html/template"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"path"
+	"reflect"
+	"runtime"
+	"runtime/debug"
 	"strconv"
 	"strings"
 	"time"
 )
 
 const (
-	UploadDir = "./code/011/photos/uploads"
+	UploadDir   = "./code/011/photos/uploads"
+	TemplateDir = "./code/011/photos/views"
+	ListDir     = 0x0001
 )
 
-func main() {
-	http.HandleFunc("/upload", uploadHandler)
-	http.HandleFunc("/view", viewHandler)
-	http.HandleFunc("/", listHandler)
-	err := http.ListenAndServe(":8080", nil)
+// 全局变量 templates 用于存放所有模板内容
+var templates = make(map[string]*template.Template)
+
+// 初始化函数完成初始化工作
+func init() {
+	// 读取文件夹
+	infos, err := ioutil.ReadDir(TemplateDir)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
+		return
+	}
+
+	// 遍历文件数组
+	for _, info := range infos {
+		filename := info.Name()
+		if ext := path.Ext(filename); ext != ".html" {
+			continue
+		}
+
+		// 解析HTML模板文件
+		tpl := template.Must(template.ParseFiles(getFilePath(TemplateDir, filename)))
+
+		// 添加到全部变量
+		templates[filename] = tpl
+	}
+}
+
+// 静态资源处理
+func staticDirHandler(mux *http.ServeMux, prefix string, staticDir string, flags int) {
+	mux.HandleFunc(prefix, func(writer http.ResponseWriter, request *http.Request) {
+		f := staticDir + request.URL.Path[len(prefix)-1:]
+		if flags&ListDir == 0 {
+			if exists := isExists(f); !exists {
+				http.NotFound(writer, request)
+				return
+			}
+		}
+		http.ServeFile(writer, request, f)
+	})
+}
+
+// 统一处理错误
+func safeHandler(fn http.HandlerFunc) http.HandlerFunc {
+	return func(writer http.ResponseWriter, request *http.Request) {
+		defer func() {
+			if err, ok := recover().(error); ok {
+				http.Error(writer, err.Error(), http.StatusInternalServerError)
+				// 或者输出自定义的 50x 错误页面
+				// writer.WriteHeader(http.StatusInternalServerError)
+				// renderHTML(writer, "error", map[string]interface{}{"error": err.Error()})
+
+				// logging
+				fcn := runtime.FuncForPC(reflect.ValueOf(fn).Pointer()).Name()
+				log.Printf("WARN: panic in %v - %v\n", fcn, err)
+				log.Println(string(debug.Stack()))
+			}
+		}()
+
+		// 执行处理函数
+		fn(writer, request)
 	}
 }
 
@@ -30,29 +91,17 @@ func main() {
 func listHandler(writer http.ResponseWriter, request *http.Request) {
 	// 读取文件夹
 	infos, err := ioutil.ReadDir(UploadDir)
-	if err != nil {
-		http.Error(writer, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	check(err)
 
-	var html string
+	// 获取图片文件名将其放入到一个切片
+	images := make([]string, 0)
 	for _, info := range infos {
-		name := info.Name()
-		html += `<li><a href="/view?id=` + name + `">` + name + `</a></li>`
+		images = append(images, info.Name())
 	}
 
-	// 输出图片列表
-	io.WriteString(writer, `<!DOCTYPE html>
-		<html lang="en">
-		<head>
-		    <meta charset="UTF-8">
-		    <title>Title</title>
-		</head>
-		<body>
-			<ol>`+html+`</ol>
-		</body>
-		</html>
-	`)
+	// 渲染 HTML
+	err = renderHTML(writer, "list.html", map[string]interface{}{"images": images})
+	check(err)
 
 	return
 }
@@ -70,10 +119,7 @@ func viewHandler(writer http.ResponseWriter, request *http.Request) {
 
 	// 获取文件类型
 	contentType, err := getFileContentType(dst)
-	if err != nil {
-		http.Error(writer, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	check(err)
 
 	// 设置Header头信息
 	writer.Header().Set("Content-Type", contentType)
@@ -109,22 +155,14 @@ func getFileContentType(filepath string) (contentType string, err error) {
 func uploadHandler(writer http.ResponseWriter, request *http.Request) {
 	// 显示表单
 	if request.Method == "GET" {
-		io.WriteString(writer, `<!DOCTYPE html>
-			<html lang="en">
-			<head>
-			    <meta charset="UTF-8">
-			    <title>Title</title>
-			</head>
-			<body>
-			<form method="post" action="/upload" enctype="multipart/form-data">
-			    Choose an image to upload:
-			    <input name="image" type="file">
-			    <input value="Upload" type="submit">
-			</form>
-			</body>
-			</html>
-		`)
+		// 渲染 HTML
+		err := renderHTML(writer, "upload.html", nil)
+		if err != nil {
+			http.Error(writer, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
+		// 返回停止处理
 		return
 	}
 
@@ -136,8 +174,6 @@ func uploadHandler(writer http.ResponseWriter, request *http.Request) {
 			http.Error(writer, err.Error(), http.StatusInternalServerError)
 			return
 		}
-
-		fmt.Printf("%+v\n", header)
 
 		// 获取上传文件的文件名
 		filename := header.Filename
@@ -171,6 +207,21 @@ func uploadHandler(writer http.ResponseWriter, request *http.Request) {
 	}
 }
 
+// 渲染HTML模板
+func renderHTML(writer http.ResponseWriter, filename string, data map[string]interface{}) error {
+	if tpl, ok := templates[filename]; ok {
+		return tpl.Execute(writer, data)
+	}
+	return errors.New(fmt.Sprintf("%s file is not exists!", filename))
+}
+
+// 错误检测
+func check(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 // 获取文件路径
 func getFilePath(dir, filename string) string {
 	return dir + "/" + filename
@@ -192,4 +243,16 @@ func isExists(filepath string) bool {
 		return os.IsExist(err)
 	}
 	return true
+}
+
+func main() {
+	mux := http.NewServeMux()
+	staticDirHandler(mux, "/assets/", "./public", 0)
+	mux.HandleFunc("/upload", safeHandler(uploadHandler))
+	mux.HandleFunc("/view", safeHandler(viewHandler))
+	mux.HandleFunc("/", safeHandler(listHandler))
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

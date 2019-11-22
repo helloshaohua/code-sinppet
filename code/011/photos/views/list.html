@@ -6,7 +6,9 @@
 </head>
 <body>
     <ol>
-        <li></li>
+        {{range $.images}}
+            <li><a href="/view?id={{.|urlquery}}">{{.|html}}</a></li>
+        {{end}}
     </ol>
 </body>
 </html>
