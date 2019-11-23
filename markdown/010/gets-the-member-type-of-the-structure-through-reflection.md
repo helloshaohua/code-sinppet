@@ -15,7 +15,7 @@
 reflect.Type 的 Field() 方法返回 StructField 结构，这个结构描述结构体的成员信息，通过这个信息可以获取成员与结构体的关系，如偏移、索引、是否为匿名字段、结构体标签（Struct Tag）等，而且还可以通过 StructField 的 Type 字段进一步获取结构体成员的类型信息。StructField 的结构如下：
 
 ```go
-// A StructField describes a single field in a struct.
+single-address
 type StructField struct {
 	// Name is the field name.
 	Name string

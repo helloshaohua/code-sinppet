@@ -8,7 +8,7 @@ RWMutex 相对友好些，是经典的单写多读模型。在读锁占用的情
 
 ```go
 // A RWMutex is a reader/writer mutual exclusion lock.
-// The lock can be held by an arbitrary number of readers or a single writer.
+single-address
 // The zero value for a RWMutex is an unlocked mutex.
 //
 // A RWMutex must not be copied after first use.
