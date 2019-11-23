@@ -95,7 +95,7 @@
 
 ### Go语言网络编程
 
-<div align=center><img width="150" height="150" src="https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191123_9.png"/></div>
+<div align=center><img style="width: 100%;" src="https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191123_9.png"/></div>
 
 ##### [示例：Dial()函数](markdown/011/dial-func.md)
 ##### [示例：建立TCP链接](markdown/011/setting-up-tcp-links.md)
