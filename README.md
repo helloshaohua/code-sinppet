@@ -97,6 +97,8 @@
 
 ![OSI、TPC\/IP及对应网络协议](https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191123_9.png)
 
+<img src="https://camo.githubusercontent.com/e5a1f4a0aee37e40f25b5b33026da70684d7a2ea/68747470733a2f2f6c75636b6c69742e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f7772697474656e2f536e697032303139313132335f392e706e67" alt="OSI、TPC/IP及对应网络协议" data-canonical-src="https://lucklit.oss-cn-beijing.aliyuncs.com/written/Snip20191123_9.png" style="max-width:100%;display: block;margin: auto;">
+
 ##### [示例：Dial()函数](markdown/011/dial-func.md)
 ##### [示例：建立TCP链接](markdown/011/setting-up-tcp-links.md)
 ##### [示例：Go语言DialTCP()](markdown/011/dial-tcp.md)
